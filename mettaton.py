@@ -1,3 +1,4 @@
+# тест
 from sys import platform
 import shelve, os.path, math, datetime, random, time,os, sys, json
 from pprint import pprint
