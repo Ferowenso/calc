@@ -195,9 +195,19 @@ def randomorgmain(random1, random2):
            ,'max':random2}
           ,'id':24565}
     params = json.dumps(data)
-    r = requests.post(url, params, headers=headers)
-    encode = r.json()
-    random = encode["result"]["random"]["data"]
+    try:
+        r = requests.post(url, params, headers=headers, timeout=0.1)
+        encode = r.json()
+        random = encode["result"]["random"]["data"]
+    except:
+        print(""" Рандом орг не смог прислать нам рандом, причин на это может быть много
+Например вы пустили программу тор, или увас нет инета, или у нас закончился лимит на запросы.
+Ну, собсна: Не так важно. На этот раз используем программный рандом \n """)
+        import random
+        randomrecue = random.randint(random1, random2)
+        random = []
+        random.append(randomrecue)
+
 def orelireshka():
     print("""Весь рандом предоставляет - https://www.random.org/ ,
 андрей тут неприделах. Хотите убедиться - смотрите код\n""")
