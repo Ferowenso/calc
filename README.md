@@ -3,7 +3,7 @@
 Собсна, не только калькулятор.  
 #### Зависимости\Библиотеки\Необходимыемодули
 Для нормального функционирования нужен requests 
-#### Windows 
+### Windows 
 в cmd: pip install requests
 ### linux
 в терминале: sudo pip install requests 
