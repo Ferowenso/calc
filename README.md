@@ -9,4 +9,4 @@
 
 * Шанс чего либо, от 0 до 100%. Рандом берется с [random.org](http://random.org/)
 * Прогноз погоды
-![Image alt](https://www.komus.ru/medias/sys_master/root/h4b/h5c/9125835243550.jpg)
+![Image alt](https://pp.userapi.com/c854524/v854524979/34a6e/DTczzh8pDiI.jpg)
