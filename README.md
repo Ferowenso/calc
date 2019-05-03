@@ -3,9 +3,9 @@
 Собсна, не только калькулятор.  
 #### Зависимости\Библиотеки\Необходимыемодули
 Для нормального функционирования нужен requests 
-### Windows 
+# Windows 
 в cmd: pip install requests
-### linux
+# linux
 в терминале: sudo pip install requests 
 
 А так же нужен Python 3
