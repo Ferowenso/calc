@@ -37,6 +37,25 @@ class Ti():
                 continue
             else:
                 break
+    def res(self):
+        while True:
+            self.name = input("Ведите новое имя и фамилию")
+            if not self.name:
+                print("ТЕБЕ СУКА СКАЗАЛИ, ВВОДИ ИМЯ И ФАМИЛИЮ. Кхм")
+                continue
+            else:
+                break
+        while True:
+            try:
+                self.age = int(input("Введите новый возраст "))
+            except ValueError:
+                print("А-та-та, цука вводи цифры")
+                continue
+            else:
+                bob = Ti(name=self.name, age=self.age)
+                with shelve.open("db66") as states:
+                    states["боб"] = bob
+                break
 
 
 
@@ -50,9 +69,9 @@ if x:
         bob = states["боб"]
         print("А вы, товарищ {}, не новичок" .format(bob.name))
 if x == False:
-    test = Ti(name=None, age=None)
-    test.loggin()
-    bob = Ti(name=test.name, age=test.age)
+    bob = Ti(name=None, age=None)
+    bob.loggin()
+    bob = Ti(name=bob.name, age=bob.age)
     with shelve.open("db66") as states:
         states["боб"] = bob
         print("Атлишна, терь мы напишем о тебе в фсб")
@@ -69,35 +88,6 @@ spravka = """Значт щас буит перечень всего, чо уме
 Щобы узнать шанс чего либо - шанс
 Щобы узнать прогноз погоды - погода
 """
-# сбросить данные о себе
-def res():
-    global bob
-    global states
-    while True:
-        name2 = input("Ведите новое имя и фамилию")
-        if not name2:
-            print("ТЕБЕ СУКА СКАЗАЛИ, ВВОДИ ИМЯ И ФАМИЛИЮ. Кхм")
-            continue
-        else:
-            break
-    while True:
-        try:
-            age2 = int(input("Введите новый возраст "))
-        except ValueError:
-            print("А-та-та, цука вводи цифры")
-            continue
-        else:
-            bob = Ti(name=name2, age=age2)
-            nameagelastname()
-            break
-#вытащить из бд имя, фамлиию и возраст
-def nameagelastname():
-    global bob
-    with shelve.open("db66") as states:
-        states["боб"] = bob
-        bob = states["боб"]
-        print(bob)
-#nameagelastname()
 #удалить бд и вырубить калькулятор
 def rmdb():
     print("Удаление данных о вас")
@@ -292,7 +282,7 @@ while True:
     elif text.lower() == "калькулятор":
         calc1()
     elif text.lower() == "изменить":
-        res()
+        bob.res()
     elif text.lower() == "стереть":
         rmdb()
     elif text.lower() == "очистить":
