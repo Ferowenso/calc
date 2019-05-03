@@ -1,4 +1,3 @@
-# тест
 from sys import platform
 import shelve, os.path, math, datetime, random, time,os, sys, json
 from pprint import pprint
@@ -57,7 +56,7 @@ class Ti():
                     states["боб"] = bob
                 break
     def rmdb(self):
-        print("Удаление данных о вас")
+        print("Удаление данных о тебе, товарищ {}".format(bob.name))
         while 1:
             print("Y/N")
             vopros = input()
@@ -92,7 +91,7 @@ if x == False:
     bob = Ti(name=bob.name, age=bob.age)
     with shelve.open("db66") as states:
         states["боб"] = bob
-        print("Атлишна, терь мы напишем о тебе в фсб")
+        print("Атлишна, терь, {}, мы напишем о тебе в фсб".format(bob.name))
 spravka = """Значт щас буит перечень всего, чо умеет эта прога  и как этим пользоваться
 Щобы сбросить свое имя и возраст - напишите сбросить
 Щобы увидеть автора сие дичи - напишите автор
@@ -110,7 +109,7 @@ spravka = """Значт щас буит перечень всего, чо уме
 #калькулятор
 def calc1():
     while True:
-        print("Для выхода из калькулятора - stop")
+        print("Для выхода из калькулятора - stop, во время выбора действия с цифрами")
         print("це калькулятор, что можно с ним сделать: \n Деление, Умножение, Сложение, Вычитание, Степень, Корень, Косинус, Синус")
         try:
             x = int(input("Введите первое число "))
@@ -172,7 +171,7 @@ elif platform == "linux":
     os.system("cowsay во славу аир")
 else:
     print("у вас, возможно, не буит работать clear")
-print("Для вызова справки - напишите хелп\n")
+print("{}, для вызова справки - напишите хелп\n" .format(bob.name))
 #меин меню
 def randomorgmain(random1, random2):
     global random
@@ -192,9 +191,9 @@ def randomorgmain(random1, random2):
         encode = r.json()
         random = encode["result"]["random"]["data"]
     except:
-        print(""" Рандом орг не смог прислать нам рандом, причин на это может быть много
+        print("""{}, рандом орг не смог прислать нам рандом, причин на это может быть много
 Например вы пустили программу тор, или увас нет инета, или у нас закончился лимит на запросы.
-Ну, собсна: Не так важно. На этот раз используем программный рандом \n """)
+Ну, собсна: Не так важно. На этот раз используем программный рандом \n """ .format(bob.name))
         import random
         randomrecue = random.randint(random1, random2)
         random = []
