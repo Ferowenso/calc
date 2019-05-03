@@ -21,26 +21,24 @@ class Ti():
     def __str__(self):
         return "Ваше имя: {}, ваша фамилия {}, ваш возраст: {}".format(bob.name.split()[0], bob.name.split()[-1],
                                                                        bob.age)
+    def loggin(self):
+        while True:
+            self.name = input("Введите имя  и фамилию ")
+            if not self.name:
+                print("ВВЕДИ ИМЯ И ФАМЛИИЮ, СУКА")
+                continue
+            else:
+                break
+        while True:
+            try:
+                self.age = int(input("Введите возраст "))
+            except ValueError:
+                print("А-та-та, цука вводи цифры")
+                continue
+            else:
+                break
 
-#первый запуск проги
-def loggin():
-    global name1
-    global age1
-    while True:
-        name1 = input("Введите имя  и фамилию ")
-        if not name1:
-            print("ВВЕДИ ИМЯ И ФАМЛИИЮ, СУКА")
-            continue
-        else:
-            break
-    while True:
-        try:
-            age1 = int(input("Введите возраст "))
-        except ValueError:
-            print("А-та-та, цука вводи цифры")
-            continue
-        else:
-            break
+
 
 #проверка, запускалось ли раньше
 if platform == "win32":
@@ -50,11 +48,11 @@ else:
 if x:
     with shelve.open("db66") as states:
         bob = states["боб"]
-        xx = "А вы, товарищ {}, не новичок".format(bob.name)
-        print(xx)
+        print("А вы, товарищ {}, не новичок" .format(bob.name))
 if x == False:
-    loggin()
-    bob = Ti(name=name1, age=age1)
+    test = Ti(name=None, age=None)
+    test.loggin()
+    bob = Ti(name=test.name, age=test.age)
     with shelve.open("db66") as states:
         states["боб"] = bob
         print("Атлишна, терь мы напишем о тебе в фсб")
@@ -99,10 +97,9 @@ def nameagelastname():
         states["боб"] = bob
         bob = states["боб"]
         print(bob)
-nameagelastname()
+#nameagelastname()
 #удалить бд и вырубить калькулятор
 def rmdb():
-    global vopros
     print("Удаление данных о вас")
     while 1:
         print("Y/N")
