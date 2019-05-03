@@ -7,7 +7,7 @@ try:
 except:
     print("Кхем, у вас нет requests, без него калькулятор не совсем работать буит. Напишите андрею\поставьте сами через pip")
     sys.exit()
-#Ад и боль, в душе не ебу когда и зачем сюда это впихнул, но нада
+#Класс для работы с именем и фамилией
 class Ti():
     def __init__(self, name, age, money=0, job=None):
         self.name = name
@@ -56,6 +56,24 @@ class Ti():
                 with shelve.open("db66") as states:
                     states["боб"] = bob
                 break
+    def rmdb(self):
+        print("Удаление данных о вас")
+        while 1:
+            print("Y/N")
+            vopros = input()
+            if vopros =="Y":
+                print("ок, ща")
+                if platform == "win32":
+                    os.remove("db66.dat")
+                    os.remove("db66.bak")
+                    os.remove("db66.dir")
+                else:
+                    os.remove("db66")
+                sys.exit()
+                break
+            if vopros == "N":
+                print("ну как хош")
+                break
 
 
 
@@ -89,20 +107,6 @@ spravka = """Значт щас буит перечень всего, чо уме
 Щобы узнать прогноз погоды - погода
 """
 #удалить бд и вырубить калькулятор
-def rmdb():
-    print("Удаление данных о вас")
-    while 1:
-        print("Y/N")
-        vopros = input()
-        if vopros =="Y":
-            print("ок, ща")
-            os.remove("db66")
-            exit(0)
-            break
-        if vopros == "N":
-           print("ну как хош")
-           break
-
 #калькулятор
 def calc1():
     while True:
@@ -184,7 +188,7 @@ def randomorgmain(random1, random2):
           ,'id':24565}
     params = json.dumps(data)
     try:
-        r = requests.post(url, params, headers=headers, timeout=0.1)
+        r = requests.post(url, params, headers=headers, timeout=5)
         encode = r.json()
         random = encode["result"]["random"]["data"]
     except:
@@ -283,8 +287,8 @@ while True:
         calc1()
     elif text.lower() == "изменить":
         bob.res()
-    elif text.lower() == "стереть":
-        rmdb()
+    elif text.lower() == "сбросить":
+        bob.rmdb()
     elif text.lower() == "очистить":
         clrclear()
     elif text.lower() == "slavaair":
